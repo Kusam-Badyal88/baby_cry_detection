@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prediction Result</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+    }
+    .container {
+      max-width: 600px;
+      padding: 40px 30px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    h1 {
+      color: #00bcd4; /* Ocean color */
+      font-family: 'Times New Roman', serif;
+      margin-bottom: 20px;
+      font-size: 32px;
+    }
+    .btn {
+      background-color: #8FBC8F; /* Sage color */
+      color: #fff;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 18px;
+      font-family: Georgia, serif;
+      transition: background-color 0.3s;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+    }
+    .btn:hover {
+      background-color: #6B8E23; /* Darker sage color on hover */
+    }
+    .result-box {
+      background-color: #f9fbe7;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 30px;
+    }
+    .prediction, .accuracy {
+      font-size: 20px;
+      color: #333;
+      font-family: Georgia, serif;
+      margin-bottom: 20px;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const prediction = "{{ prediction }}".toLowerCase();
+        const backgroundImages = {
+            "tired or lack of sleep": "url('https://media.istockphoto.com/id/1166365914/photo/crying-hungry-newborn-baby-lying-on-the-bed-love-baby-newborn-baby-and-mother.webp?b=1&s=170667a&w=0&k=20&c=VlUJqaPmDJCB2Mbzra8SWEEdD1q-exwMLoVvNcRoRD0=')",
+            "burping": "url('https://media.istockphoto.com/id/497801064/photo/newborn-baby-boy-on-a-blue-blanket.webp?b=1&s=170667a&w=0&k=20&c=_txsKw1-ry-H48EcEkSKAMCswDSsKAipRnrwanoPQYA=')",
+            "hunger or exhaustion": "url('https://cdn.pixabay.com/photo/2017/06/16/10/31/crying-baby-2408618_1280.jpg')",
+            "discomfort or lack of affection and attention": "url('https://media.istockphoto.com/id/1447192600/photo/newborn-on-his-fathers-arm-screams-crying-with-expression-of-suffering.jpg?s=612x612&w=0&k=20&c=dvPbdHz3-l6MOQh96qu8OT71eXQpNz7-lZx5Db5B27g=')",
+            "belly pain or colic": "url('https://media.istockphoto.com/id/698747634/photo/unrecognizable-mother-holding-crying-newborn-baby-girl.jpg?s=612x612&w=0&k=20&c=H7KutgHT3KvTVydezJVbLHavd52fisIwfuet14KnNN4=')"
+        };
+
+        // Get the background image URL based on the prediction
+        const backgroundImage = backgroundImages[prediction] || "url('https://media.istockphoto.com/id/1199432078/photo/baby-boy-lying-on-bed-alone-and-crying.jpg?s=612x612&w=0&k=20&c=v1Je7Eb5TyaTLzzHhRveQ03WydFQbzZ38PkMm-QVO9o=')";
+
+        // Apply the background image to the body
+        document.body.style.backgroundImage = backgroundImage;
+    });
+</script>
+
+</head>
+<body>
+  <div class="container">
+    <h1>Prediction Result</h1>
+    <div class="result-box">
+      <p class="prediction">The baby might be crying because of: {{ prediction }}</p>
+      <div class="accuracy">
+        <p>Model Accuracy: {{ accuracy }}%</p>
+      </div>
+    </div>
+    <button class="btn" onclick="location.href='/'">Go to Home Page</button>
+  </div>
+</body>
+</html>
