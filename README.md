@@ -109,11 +109,11 @@ baby_cry_detection/
 ├── app.py
 └── README.md
 📈 Model Accuracies
-Model	Accuracy
-Random Forest	78%
-SVM	64%
-Gradient Boosting	75%
-KNN	79%
+Model	   Accuracy
+Random Forest 🌲	78%
+SVM 📊	64%
+Gradient Boosting 🔺	75%
+KNN 🤝	79%
 
 ✨ Future Improvements
 🧠 Add deep learning models (e.g., CNN, LSTM)
